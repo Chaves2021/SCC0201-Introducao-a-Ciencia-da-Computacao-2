@@ -11,11 +11,20 @@
  After that, do it again with the smaller arrays
 
  Worst case complexity:	O(n²)
-	 If the Pivot is the worst possible (at position 0 or n-1)
-	 one of the subarray has only the pivot
-	 and the other has n-1 elems
-	 So the time is c(n)+c(n-1)+...+2c=c(n+(n-1)+...+2)=c((n-1)*(n-2)-1), so O(n²)
+	-If the Pivot is the worst possible (at position 0 or n-1)
+	one of the subarray has only the pivot
+	and the other has n-1 elems
+	-So the time is c(n)+c(n-1)+...+2c=c(n+(n-1)+...+2)=c((n-1)*(n-2)-1), so O(n²)
 
+ Best case complexity: O(n*lg(n))
+ 	-The best case is always divide the array into 2 subarrays at the same size
+	-It looks like a tree :)
+	
+ Medium case complexity: O(n*lg(n))
+ 	-It stills looks like a tree, so it's always limited by n*lg(n)
+ 
+ Conclusion:
+  	-Most used because medium case has good complexity 
 */
 #include<stdio.h>
 #include<stdlib.h>
@@ -53,6 +62,9 @@ int main(void){
 	return SUCCESS;
 }
 
+//TODO
+//refazer código, não funciona
+
 void partition(int *array, int left, int right,
 	       			int *left_curr, int *right_curr){
 	int pivot;
@@ -68,12 +80,12 @@ void partition(int *array, int left, int right,
 
 		//if the positions didn't cross 
 		//it means found 2 elems to swap positions
-		if(*left_curr < *right_curr){
+		if((*left_curr) < (*right_curr)){
 			aux = array[*right_curr];
 			array[*right_curr] = array[*left_curr];
 			array[*left_curr] = aux;
 		}
-	}while(*left_curr < *right_curr);
+	}while((*left_curr) < (*right_curr));
 }
 
 void quick_sort(int *array, int left, int right){
