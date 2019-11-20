@@ -2,9 +2,9 @@
 #include <stdlib.h>
 
 //Constante definida para saber se naquele espaco um elemento foi deletado, equivale a 3 # que tem o valor 35
-#define DELETE_CONST	105
-#define SUCCESS		 0
-#define NOT_FOUND	-1
+#define DELETE_CONST	-105
+#define SUCCESS		   0
+#define NOT_FOUND	  -1
 
 int hash_insercao(int *t, int valor, int qtd);
 int hash_busca(int *t, int valor, int qtd);

@@ -45,13 +45,14 @@ int main(void){
 	}
 	printf("\n");
 	printf("This is the array after sorting :)\n");
-	for(i = 0; i < size - 1 && do_sort; i++){
+	//Each step, the last elem is sorted, so decrease indice
+	for(i = size - 1; i >= 1 && do_sort; i--){
 		do_sort = FALSE;
-		for(j = i + 1; j < size; j++){
-			if(array[i] > array[j]){
-				aux = array[i];
-				array[i] = array[j];
-				array[j] = aux;
+		for(j = 0; j < i; j++){
+			if(array[j] > array[j+1]){
+				aux = array[j];
+				array[j] = array[j+1];
+				array[j+1] = aux;
 				do_sort = TRUE;
 			}
 		}
