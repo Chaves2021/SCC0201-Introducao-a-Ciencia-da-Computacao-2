@@ -19,7 +19,10 @@
 
  AFTER THAT, DECREASE H
 
- AFTER H == 1, DO INSERTION SORT
+ AFTER H == 1, DO INSERTION SORT :)
+
+ -To choose a good H (increment) Knuth says:
+ 	H(1) = 1 && H(i+1) = 3*H(i) + 1
 
 */
 #include<stdio.h>
@@ -31,10 +34,22 @@
 #define FALSE		0
 
 int main(void){
-	
+	int i, j;
+	int key;
+	int size = 10;
+	int *array;
+	array = (int *) calloc(size, sizeof(int));
 
+	//Seed defined by time
+	//OBS: NOT SECURE
+	srand(time(NULL));
 
-
+	printf("This is the array before sorting\n");
+	for(i = 0; i < size; i++){
+		array[i] = rand() % 100;
+		printf("%d ", array[i]);
+	}
+	printf("\n");
 
 	return SUCCESS;
 }
