@@ -62,9 +62,6 @@ int main(void){
 	return SUCCESS;
 }
 
-//TODO
-//refazer código, não funciona
-
 void partition(int *array, int left, int right,
 	       			int *left_curr, int *right_curr){
 	int pivot;
@@ -85,7 +82,7 @@ void partition(int *array, int left, int right,
 			array[*right_curr] = array[*left_curr];
 			array[*left_curr] = aux;
 		}
-	}while((*left_curr) < (*right_curr));
+	}while((*left_curr) < (*right_curr) && array[*left_curr] != array[*right_curr]);
 }
 
 void quick_sort(int *array, int left, int right){
